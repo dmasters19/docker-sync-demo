@@ -1,0 +1,26 @@
+version: "2"
+syncs:
+  microservice_1:
+    src: 'microservice_1'
+    sync_excludes: 
+      - 'node_modules'
+  microservice_2:
+    src: 'microservice_2'
+    sync_excludes: 
+      - 'node_modules'
+  microservice_3:
+    src: 'microservice_3'
+    sync_excludes: 
+      - 'node_modules'
+  microservice_4:
+    src: 'microservice_4'
+    sync_excludes: 
+      - 'node_modules'
+  microservice_5:
+    src: 'microservice_5'
+    sync_excludes: 
+      - 'node_modules'
+  ui:
+    src: 'ui'
+    sync_excludes: 
+      - 'node_modules'

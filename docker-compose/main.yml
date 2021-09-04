@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  microservice_1:
+    build: ../microservice_1
+    ports:
+      - "3000:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - ../microservice_1/:/usr/src/app
+      - /usr/src/app/node_modules
+  microservice_2:
+    build: ../microservice_2
+    ports:
+      - "3001:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - ../microservice_2/:/usr/src/app
+      - /usr/src/app/node_modules
+  microservice_3:
+    build: ../microservice_3
+    ports:
+      - "3002:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - ../microservice_3/:/usr/src/app
+      - /usr/src/app/node_modules
+  microservice_4:
+    build: ../microservice_4
+    ports:
+      - "3003:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - ../microservice_4/:/usr/src/app
+      - /usr/src/app/node_modules
+  microservice_5:
+    build: ../microservice_5
+    ports:
+      - "3004:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - ../microservice_5/:/usr/src/app
+      - /usr/src/app/node_modules
+  ui:
+    build: ../ui
+    ports:
+      - "3006:3006"
+    command: ["start"]
+    volumes:
+      - ../ui/:/usr/src/app
+      - /usr/src/app/node_modules
+
+
+

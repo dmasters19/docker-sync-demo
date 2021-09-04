@@ -1,0 +1,48 @@
+version: "3.9"
+
+volumes:
+  microservice_1:
+    external: true
+  microservice_2:
+    external: true
+  microservice_3:
+    external: true
+  ui:
+    external: true
+
+services:
+  microservice_1:
+    build: ../microservice_1
+    ports:
+      - "3000:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - microservice_1:/usr/src/app:nocopy # nocopy is important
+      - /usr/src/app/node_modules
+  microservice_2:
+    build: ../microservice_2
+    ports:
+      - "3001:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - microservice_2:/usr/src/app:nocopy
+      - /usr/src/app/node_modules
+  microservice_3:
+    build: ../microservice_3
+    ports:
+      - "3002:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - microservice_3:/usr/src/app:nocopy
+      - /usr/src/app/node_modules
+  ui:
+    build: ../ui
+    ports:
+      - "3006:3006"
+    command: ["start"]
+    volumes:
+      - ui:/usr/src/app:nocopy
+      - /usr/src/app/node_modules
+
+
+
