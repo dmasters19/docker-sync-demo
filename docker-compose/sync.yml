@@ -7,6 +7,10 @@ volumes:
     external: true
   microservice_3:
     external: true
+  microservice_4:
+    external: true
+  microservice_5:
+    external: true
   ui:
     external: true
 
@@ -34,6 +38,22 @@ services:
     command: ["run", "start:dev"]
     volumes:
       - microservice_3:/usr/src/app:nocopy
+      - /usr/src/app/node_modules
+  microservice_4:
+    build: ../microservice_4
+    ports:
+      - "3003:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - microservice_4:/usr/src/app:nocopy
+      - /usr/src/app/node_modules
+  microservice_5:
+    build: ../microservice_5
+    ports:
+      - "3004:3000"
+    command: ["run", "start:dev"]
+    volumes:
+      - microservice_5:/usr/src/app:nocopy
       - /usr/src/app/node_modules
   ui:
     build: ../ui
